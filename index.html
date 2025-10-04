@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rantu Samadder — Student Portfolio</title>
+  <meta name="description" content="Portfolio of Rantu Samadder — Student, CSE." />
+  <style>
+    :root{--accent:#60a5fa;--muted:#94a3b8;--text:#e6eef8}
+    *{box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial; margin:0; background:linear-gradient(180deg,#0b1220 0%, #071029 100%); color:var(--text); line-height:1.5; padding:20px}
+    .container{max-width:1000px;margin:0 auto;padding:24px}
+    header{display:flex;gap:20px;align-items:center;margin-bottom:24px}
+    .avatar{width:140px;height:140px;border-radius:50%;overflow:hidden;flex:0 0 140px;border:4px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b1220,#0a1b2f)}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .initials{width:100%;height:100%;display:none;align-items:center;justify-content:center;font-weight:700;font-size:48px;background:linear-gradient(135deg,#1f2937,#111827);color:var(--text)}
+    h1{font-size:28px;margin:0}
+    h2{font-size:20px;margin:8px 0;color:var(--accent)}
+    .lead{color:var(--muted);margin-top:6px}
+    .socials{display:flex;gap:8px;margin-top:8px}
+    .socials a{color:var(--text);text-decoration:none;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:14px}
+    section{margin-top:24px;padding:18px;background:rgba(255,255,255,0.02);border-radius:12px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    @media(max-width:880px){.grid{grid-template-columns:1fr}.avatar{width:110px;height:110px;flex:0 0 110px}.container{padding:12px}}
+    .timeline{position:relative;padding-left:18px}
+    .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
+    .timeline-item{position:relative;padding:12px 0 12px 18px}
+    .timeline-item .dot{position:absolute;left:-2px;top:12px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(96,165,250,0.08)}
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media(max-width:600px){.cards{grid-template-columns:1fr}}
+    .card{padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+    .pub-list{list-style:none;padding:0;margin:0}
+    .pub-list li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+    .footer{opacity:0.8;color:var(--muted);font-size:13px;margin-top:14px}
+    a.cta{display:inline-block;padding:10px 14px;background:var(--accent);color:#04203a;border-radius:8px;text-decoration:none;font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">
+        <!-- Put your profile photo at /assets/profile.jpg -->
+        <img src="assets/profile.jpg" alt="Rantu Samadder" onerror="this.style.display='none';document.getElementById('initials').style.display='flex'" />
+        <div id="initials" class="initials">RS</div>
+      </div>
+
+      <div>
+        <h1>Rantu Samadder</h1>
+        <div class="lead">Computer Science & Engineering student • IT Secretary • Learner</div>
+
+        <div class="socials">
+          <a href="https://github.com/RantuSamadder" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/your-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:your.email@example.com">Email</a>
+          <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer">Twitter</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section>
+          <h2>About</h2>
+          <p>Replace this paragraph with a short personal bio: what you study, what you're interested in, tools you use, and what kinds of projects you want to build.</p>
+          <p><a class="cta" href="assets/CV.pdf" target="_blank">Download CV</a></p>
+        </section>
+
+        <section>
+          <h2>Education — timeline</h2>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="dot"></div>
+              <strong>Bachelor of Science — Computer Science & Engineering</strong><br>
+              <small class="lead">Southeast University — 2022 – present</small>
+            </div>
+
+            <div class="timeline-item">
+              <div class="dot"></div>
+              <strong>Higher Secondary Certificate (HSC)</strong><br>
+              <small class="lead">Your College — 2019 – 2021</small>
+            </div>
+
+          </div>
+        </section>
+
+        <section>
+          <h2>Activities & Projects</h2>
+          <div class="cards">
+            <div class="card">
+              <strong>Project: Portfolio Website</strong>
+              <p>Built with HTML/CSS — hosted on GitHub Pages. This repo demonstrates static site deployment and content organization.</p>
+            </div>
+            <div class="card">
+              <strong>IT Secretary — Club</strong>
+              <p>Managed website, systems, and event registrations.</p>
+            </div>
+            <div class="card">
+              <strong>Coursework</strong>
+              <p>PHY181, ENG105, Data Structures, Algorithms, etc.</p>
+            </div>
+            <div class="card">
+              <strong>Open-source contributions</strong>
+              <p>Contributed to team repository on GitHub — list repos and links here.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Awards</h2>
+          <ul>
+            <li>Dean's list, Southeast University — Year</li>
+            <li>Programming contest — Position, Year</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Publications</h2>
+          <ul class="pub-list">
+            <li><strong>Paper Title</strong> — Conference/Journal, Year. <a href="assets/paper1.pdf">PDF</a></li>
+            <li><strong>Article</strong> — Website/Blog, Year. <a href="https://example.com" target="_blank">Link</a></li>
+          </ul>
+        </section>
+
+      </main>
+
+      <aside>
+        <section>
+          <h2>Quick Info</h2>
+          <p><strong>ID:</strong> 2022200000149</p>
+          <p><strong>Dept:</strong> CSE — Southeast University</p>
+        </section>
+
+        <section>
+          <h2>Contact</h2>
+          <p>Email: your.email@example.com</p>
+          <p>Phone: +8801xxxxxxxxx</p>
+        </section>
+
+        <section>
+          <h2>Follow</h2>
+          <p>GitHub / LinkedIn / Twitter — links above</p>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      Made with ❤️ — edit this page in the repository root (index.html) and add images/files under /assets. If you want a custom theme or multiple pages, tell me which style you like.
+    </footer>
+  </div>
+
+  <script>
+    /* Small helper — replace placeholders with your real links (no action needed) */
+  </script>
+</body>
+</html>
