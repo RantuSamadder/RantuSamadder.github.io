@@ -15,7 +15,7 @@
     *{box-sizing:border-box}
     body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial; margin:0; background:linear-gradient(180deg,#0b1220 0%, #071029 100%); color:var(--text); line-height:1.5; padding:20px}
     .container{max-width:1000px;margin:0 auto;padding:24px}
-    header{display:flex;gap:20px;align-items:center;margin-bottom:24px}
+    header{display:flex;gap:20px;align-items:center;margin-bottom:24px;justify-content:space-between}
     .avatar{width:140px;height:140px;border-radius:50%;overflow:hidden;flex:0 0 140px;border:4px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b1220,#0a1b2f)}
     .avatar img{width:100%;height:100%;object-fit:cover;display:block}
     .initials{width:100%;height:100%;display:none;align-items:center;justify-content:center;font-weight:700;font-size:48px;background:linear-gradient(135deg,#1f2937,#111827);color:var(--text)}
@@ -44,16 +44,37 @@
     /* Dropdown menu styles */
     .dropdown{position:relative}
     .dropbtn{background:var(--accent);color:#04203a;padding:8px 14px;border:none;border-radius:8px;cursor:pointer;font-weight:600}
-    .dropdown-content{display:none;position:absolute;left:0;top:110%;background:#0a1b2f;min-width:160px;box-shadow:0 8px 16px rgba(0,0,0,0.3);border-radius:8px;z-index:1000}
+    .dropdown-content{display:none;position:absolute;right:0;top:110%;background:#0a1b2f;min-width:160px;box-shadow:0 8px 16px rgba(0,0,0,0.3);border-radius:8px;z-index:1000}
     .dropdown-content a{display:block;padding:10px 14px;color:var(--text);text-decoration:none}
     .dropdown-content a:hover{background:rgba(255,255,255,0.08)}
     .dropdown.show .dropdown-content{display:block}
+    
+    /* Header inner layout */
+    .header-left{display:flex;align-items:center;gap:20px}
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <!-- Dropdown Home/Menu button -->
+      <!-- Left part: avatar + info -->
+      <div class="header-left">
+        <div class="avatar">
+          <img src="assets/profile.jpg" alt="Rantu Samadder" onerror="this.style.display='none';document.getElementById('initials').style.display='flex'" />
+          <div id="initials" class="initials">RS</div>
+        </div>
+
+        <div>
+          <h1>Rantu Samadder</h1>
+          <div class="lead">Computer Science & Engineering student • Rover Scout</div>
+          <div class="socials">
+            <a href="https://github.com/RantuSamadder" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:2022200000149@seu.edu.bd">Email</a>
+            <a href="https://wa.me/1767556635" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Menu button -->
       <div class="dropdown">
         <button onclick="toggleMenu()" class="dropbtn">☰ Menu</button>
         <div class="dropdown-content" id="menuDropdown">
@@ -63,22 +84,6 @@
           <a href="#awards">Awards</a>
           <a href="#publications">Publications</a>
           <a href="#quickinfo">Quick Info</a>
-        </div>
-      </div>
-
-      <div class="avatar">
-        <img src="assets/profile.jpg" alt="Rantu Samadder" onerror="this.style.display='none';document.getElementById('initials').style.display='flex'" />
-        <div id="initials" class="initials">RS</div>
-      </div>
-
-      <div>
-        <h1>Rantu Samadder</h1>
-        <div class="lead">Computer Science & Engineering student • Rover Scout</div>
-
-        <div class="socials">
-          <a href="https://github.com/RantuSamadder" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="mailto:2022200000149@seu.edu.bd">Email</a>
-          <a href="https://wa.me/1767556635" rel="noopener noreferrer">WhatsApp</a>
         </div>
       </div>
     </header>
