@@ -20,7 +20,7 @@
     * { box-sizing: border-box; }
 
     html {
-      scroll-padding-top: 70px; /* Added to prevent sticky header from covering sections */
+      scroll-padding-top: 70px;
     }
 
     body {
@@ -211,6 +211,13 @@
     a.cta:hover { background: #04203a; color: var(--accent); transform: scale(1.05); }
     main, main section { text-align: center; }
     #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+    /* Robot animation styling */
+    #robot {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
@@ -327,6 +334,12 @@
           <p><strong>ID:</strong> 2022200000149</p>
           <p><strong>Dept:</strong> Computer Science and Engineering (CSE)</p>
         </section>
+
+        <!-- Robot Animation Section -->
+        <section id="robot-animation" class="centered">
+          <h2>Meet My Robot</h2>
+          <div id="robot"></div>
+        </section>
       </aside>
     </div>
 
@@ -335,6 +348,7 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
   <script>
     // Toggle Mobile Menu
     document.getElementById("menuToggle").addEventListener("click", function () {
@@ -372,6 +386,15 @@
         },
       },
       retina_detect: true,
+    });
+
+    // Load Lottie robot animation
+    lottie.loadAnimation({
+      container: document.getElementById('robot'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'assets/robot.json' // Replace with your robot animation JSON file
     });
   </script>
 </body>
