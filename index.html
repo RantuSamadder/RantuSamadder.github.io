@@ -11,107 +11,322 @@
   <link rel="apple-touch-icon" href="assets/profile.jpg" />
 
   <style>
-    :root{--accent:#60a5fa;--muted:#94a3b8;--text:#e6eef8}
-    *{box-sizing:border-box}
-    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial; margin:0; background:linear-gradient(180deg,#0b1220 0%, #071029 100%); color:var(--text); line-height:1.5; padding:20px; position:relative; overflow-x:hidden}
-    .container{max-width:1000px;margin:0 auto;padding:24px; position:relative; z-index:1}
-    header{display:flex;gap:20px;align-items:center;margin-bottom:24px;justify-content:space-between}
-    .avatar{width:140px;height:140px;border-radius:12px;overflow:hidden;flex:0 0 140px;border:4px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b1220,#0a1b2f)}
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-    .initials{width:100%;height:100%;display:none;align-items:center;justify-content:center;font-weight:700;font-size:48px;border-radius:12px;background:linear-gradient(135deg,#1f2937,#111827);color:var(--text)}
-    h1{font-size:28px;margin:0}
-    h2{font-size:20px;margin:8px 0;color:var(--accent)}
-    .lead{color:var(--muted);margin-top:6px}
-    .socials{display:flex;gap:8px;margin-top:8px}
-    .socials a{color:var(--text);text-decoration:none;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:14px}
-    section{margin-top:24px;padding:18px;background:rgba(255,255,255,0.02);border-radius:12px}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
-    @media(max-width:880px){.grid{grid-template-columns:1fr}.avatar{width:110px;height:110px;flex:0 0 110px}.container{padding:12px}}
-    .timeline{position:relative;padding-left:18px;margin:0 auto;max-width:600px;text-align:left}
-    .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
-    .timeline-item{position:relative;padding:12px 0 12px 18px}
-    .timeline-item .dot{position:absolute;left:-2px;top:12px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(96,165,250,0.08)}
-    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;justify-content:center}
-    @media(max-width:600px){.cards{grid-template-columns:1fr}}
-    .card{padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02);text-align:center;transition:all 0.3s ease}
-    .card:hover{transform:translateY(-8px); box-shadow:0 10px 20px rgba(0,0,0,0.5);}
-    .pub-list{list-style:none;padding:0;margin:0}
-    .pub-list li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
-    .footer{opacity:0.8;color:var(--muted);font-size:13px;margin-top:14px;text-align:center}
-    a.cta{display:inline-block;padding:10px 14px;background:var(--accent);color:#04203a;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.3s ease}
-    a.cta:hover{background:#04203a; color:var(--accent); transform:scale(1.05);}
-    main, main section{text-align:center}
+    :root {
+      --accent: #60a5fa;
+      --muted: #94a3b8;
+      --text: #e6eef8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial;
+      margin: 0;
+      background: linear-gradient(180deg, #0b1220 0%, #071029 100%);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px;
+      position: relative;
+      z-index: 1;
+    }
 
-    /* Dropdown menu styles */
-    .dropdown{position:relative}
-    .dropbtn{
-      background:var(--accent);
-      color:#04203a;
-      padding:8px 14px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      font-weight:600;
-      transition:all 0.3s ease;
+    /* ===== Responsive Header Bar ===== */
+    .site-header {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .dropbtn:hover{
-      background:#04203a;
-      color:var(--accent);
-      transform:scale(1.05);
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .dropdown-content{display:none;position:absolute;right:0;top:110%;background:#0a1b2f;min-width:160px;box-shadow:0 8px 16px rgba(0,0,0,0.3);border-radius:8px;z-index:1000}
-    .dropdown-content a{
-      display:block;
-      padding:10px 14px;
-      color:var(--text);
-      text-decoration:none;
-      transition:all 0.3s ease;
+    .site-title {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
     }
-    .dropdown-content a:hover{
-      background:rgba(255,255,255,0.08);
-      transform:translateX(5px);
+    .site-title:hover {
+      color: var(--accent);
     }
-    .dropdown.show .dropdown-content{display:block}
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .menu-toggle:hover {
+      transform: scale(1.2);
+    }
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: #0a1b2f;
+        padding: 12px 16px;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      }
+      .nav-links.show {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
 
-    .header-left{display:flex;align-items:center;gap:20px}
-
-    /* Particle background container */
-    #particles-js{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+    /* ===== Main Layout ===== */
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex: 0 0 140px;
+      border: 4px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0b1220, #0a1b2f);
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .initials {
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1f2937, #111827);
+      color: var(--text);
+    }
+    h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 8px 0;
+      color: var(--accent);
+    }
+    .lead {
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .socials {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .socials a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      font-size: 14px;
+    }
+    section {
+      margin-top: 24px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 20px;
+    }
+    @media (max-width: 880px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .avatar {
+        width: 110px;
+        height: 110px;
+        flex: 0 0 110px;
+      }
+      .container {
+        padding: 12px;
+      }
+    }
+    .timeline {
+      position: relative;
+      padding-left: 18px;
+      margin: 0 auto;
+      max-width: 600px;
+      text-align: left;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      padding: 12px 0 12px 18px;
+    }
+    .timeline-item .dot {
+      position: absolute;
+      left: -2px;
+      top: 12px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.08);
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      justify-content: center;
+    }
+    @media (max-width: 600px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+    .card {
+      padding: 12px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.02);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+    .pub-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .pub-list li {
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+    }
+    .footer {
+      opacity: 0.8;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 14px;
+      text-align: center;
+    }
+    a.cta {
+      display: inline-block;
+      padding: 10px 14px;
+      background: var(--accent);
+      color: #04203a;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    a.cta:hover {
+      background: #04203a;
+      color: var(--accent);
+      transform: scale(1.05);
+    }
+    main,
+    main section {
+      text-align: center;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
-
   <!-- Particle background -->
   <div id="particles-js"></div>
+
+  <!-- ===== Responsive Header Bar ===== -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="https://rantusamadder.github.io" class="site-title">Rantu Samadder</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Activities & Projects</a>
+        <a href="#awards">Awards</a>
+        <a href="#publications">Publications</a>
+        <a href="#quickinfo">Quick Info</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
 
   <div class="container">
     <header>
       <div class="header-left">
         <div class="avatar">
-          <img src="assets/profile.jpg" alt="Rantu Samadder" onerror="this.style.display='none';document.getElementById('initials').style.display='flex'" />
+          <img src="assets/profile.jpg" alt="Rantu Samadder"
+            onerror="this.style.display='none';document.getElementById('initials').style.display='flex'" />
           <div id="initials" class="initials">RS</div>
         </div>
-
         <div>
           <h1>Rantu Samadder</h1>
           <div class="lead">Computer Science & Engineering student • Rover Scout</div>
           <div class="socials">
-            <a href="https://github.com/RantuSamadder" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/RantuSamadder" target="_blank">GitHub</a>
             <a href="mailto:2022200000149@seu.edu.bd">Email</a>
-            <a href="https://wa.me/1767556635" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://wa.me/1767556635">WhatsApp</a>
           </div>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button onclick="toggleMenu()" class="dropbtn">Menu</button>
-        <div class="dropdown-content" id="menuDropdown">
-          <a href="#about">About</a>
-          <a href="#education">Education</a>
-          <a href="#projects">Activities & Projects</a>
-          <a href="#awards">Awards</a>
-          <a href="#publications">Publications</a>
-          <a href="#quickinfo">Quick Info</a>
         </div>
       </div>
     </header>
@@ -120,7 +335,7 @@
       <main>
         <section id="about">
           <h2>About</h2>
-          <p>Hare Krishna, I am Rantu Samadder, a Computer Science and Engineering student at Southeast University. I am passionate about learning, problem-solving, and applying technology to real-world challenges. My interests include numerical methods, data structures, and software development. Beyond academics, I am active as a Rover Scout and serve as the IT Secretary of the Southeast Cultural Society, where I manage digital platforms and events. I also contribute as a Local Coordinator for the Messengers of Peace initiative. I enjoy building projects that combine technical knowledge with community impact.</p>
+          <p>Hare Krishna, I am Rantu Samadder, a Computer Science and Engineering student at Southeast University...</p>
           <p><a class="cta" href="assets/CV.pdf" target="_blank">Download CV</a></p>
         </section>
 
@@ -129,20 +344,18 @@
           <div class="timeline">
             <div class="timeline-item">
               <div class="dot"></div>
-              <strong>Bachelor of Science — Computer Science & Engineering</strong><br>
-              <small class="lead">Southeast University, Dhaka - 1208 | 2022 – present</small>
+              <strong>Bachelor of Science — Computer Science & Engineering</strong><br />
+              <small class="lead">Southeast University, Dhaka | 2022 – present</small>
             </div>
-
             <div class="timeline-item">
               <div class="dot"></div>
-              <strong>Higher Secondary Certificate (HSC)</strong><br>
-              <small class="lead">Birshreshtha Munshi Abdur Rouf Public College, Dhaka - 1205 | 2019 – 2021</small>
+              <strong>Higher Secondary Certificate (HSC)</strong><br />
+              <small class="lead">Birshreshtha Munshi Abdur Rouf Public College | 2019 – 2021</small>
             </div>
-
             <div class="timeline-item">
               <div class="dot"></div>
-              <strong>Secondary School Certificate (SSC)</strong><br>
-              <small class="lead">Armanitola Government High School, Dhaka - 1100 | 2014 – 2019</small>
+              <strong>Secondary School Certificate (SSC)</strong><br />
+              <small class="lead">Armanitola Government High School | 2014 – 2019</small>
             </div>
           </div>
         </section>
@@ -152,7 +365,7 @@
           <div class="cards">
             <div class="card">
               <strong>Project: Richardson Extrapolation on Trapezoidal Rule</strong>
-              <p>Implementation and explanation of Richardson Extrapolation for improving the accuracy of the Trapezoidal Rule, with comparison of results before and after extrapolation.</p>
+              <p>Implementation and explanation of Richardson Extrapolation for improving accuracy...</p>
             </div>
             <div class="card">
               <strong>Coursework</strong>
@@ -164,7 +377,7 @@
             </div>
             <div class="card">
               <strong>Messengers of Peace</strong>
-              <p>I am contributing as a Local Coordinator to the Messengers of Peace initiative by the World Organization of the Scout Movement (WOSM).</p>
+              <p>Contributing as Local Coordinator under WOSM initiative.</p>
             </div>
           </div>
         </section>
@@ -195,44 +408,41 @@
       </aside>
     </div>
 
-    <footer class="footer">
-      © 2025 Rantu Samadder
-    </footer>
+    <footer class="footer">© 2025 Rantu Samadder</footer>
   </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    function toggleMenu(){
-      document.querySelector('.dropdown').classList.toggle("show");
-    }
-    window.onclick = function(event){
-      if (!event.target.matches('.dropbtn')){
-        let dropdowns=document.getElementsByClassName("dropdown");
-        for(let i=0;i<dropdowns.length;i++){
-          dropdowns[i].classList.remove('show');
-        }
-      }
-    }
+    // Toggle Mobile Menu
+    document.getElementById("menuToggle").addEventListener("click", function () {
+      document.getElementById("navLinks").classList.toggle("show");
+    });
 
     // Initialize particles.js
     particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80 },
-        "color": { "value": "#60a5fa" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3 },
-        "line_linked": { "enable": true, "distance": 120, "color": "#60a5fa", "opacity": 0.3, "width": 1 },
-        "move": { "enable": true, "speed": 2 }
+      particles: {
+        number: { value: 80 },
+        color: { value: "#60a5fa" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 120,
+          color: "#60a5fa",
+          opacity: 0.3,
+          width: 1,
+        },
+        move: { enable: true, speed: 2 },
       },
-      "interactivity": {
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "onclick": { "enable": true, "mode": "push" }
-        }
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" },
+        },
       },
-      "retina_detect": true
+      retina_detect: true,
     });
   </script>
 </body>
