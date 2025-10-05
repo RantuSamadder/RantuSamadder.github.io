@@ -16,7 +16,13 @@
       --muted: #94a3b8;
       --text: #e6eef8;
     }
+
     * { box-sizing: border-box; }
+
+    html {
+      scroll-padding-top: 70px; /* Added to prevent sticky header from covering sections */
+    }
+
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial;
       margin: 0;
@@ -27,6 +33,7 @@
       position: relative;
       overflow-x: hidden;
     }
+
     .container {
       max-width: 1000px;
       margin: 0 auto;
@@ -149,7 +156,7 @@
     }
     section { margin-top: 24px; padding: 18px; background: rgba(255, 255, 255, 0.02); border-radius: 12px; }
     section p { overflow: visible; white-space: normal; word-wrap: break-word; text-align: left; }
-    .centered { text-align: center; } /* Added for centering CTA buttons */
+    .centered { text-align: center; }
     .grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
     @media (max-width: 880px) {
       .grid { grid-template-columns: 1fr; }
