@@ -293,61 +293,70 @@
     const knowledgeBase = [
   // About
   { 
-    questions: ["about","who are you","introduce yourself","background","bio"], 
-    answer: "I am Shree Rantu Samadder, a Computer Science & Engineering student at Southeast University. I am passionate about programming, problem-solving, numerical methods, and software development. I am also active as a Rover Scout and serve as IT Secretary of the Southeast Cultural Society." 
+    questions: ["about","who are you","introduce yourself","bio","background"], 
+    answer: "I am Shree Rantu Samadder, a Computer Science & Engineering student at Southeast University. I am passionate about programming, problem-solving, numerical methods, and software development. I am also a Rover Scout, IT Secretary of Southeast Cultural Society, and Local Coordinator for the Messengers of Peace initiative." 
   },
+
   // Education
   { 
     questions: ["education","school","college","university","ssc","hsc","bsc","study"], 
-    answer: "I completed my SSC at Armanitola Government High School, HSC at Birshreshtha Munshi Abdur Rouf Public College, and currently pursuing BSc in Computer Science & Engineering at Southeast University." 
+    answer: "My education timeline: SSC at Armanitola Government High School (2014–2019), HSC at Birshreshtha Munshi Abdur Rouf Public College (2019–2021), BSc in Computer Science & Engineering at Southeast University (2022–present)." 
   },
+
   // Activities & Projects
   { 
-    questions: ["projects","activities","work","experience","projects i did"], 
-    answer: "Some of my projects include implementing Richardson Extrapolation on the Trapezoidal Rule, coursework in PHY181, ENG105, Data Structures, and contributions as IT Secretary of the Southeast Cultural Society, managing website, systems, and events. I also serve as Local Coordinator for the Messengers of Peace initiative under WOSM." 
+    questions: ["projects","activities","work","experience","project details","coursework"], 
+    answer: "Key activities and projects: 1) Richardson Extrapolation on Trapezoidal Rule project. 2) Coursework including PHY181, ENG105, Data Structures. 3) IT Secretary of Southeast Cultural Society managing website, systems, and event registrations. 4) Local Coordinator for Messengers of Peace initiative under WOSM." 
   },
+
   // Awards
   { 
     questions: ["awards","achievements","honors","recognition","prizes"], 
-    answer: "I have been recognized on the Dean's List at Southeast University and have participated in programming contests." 
+    answer: "Awards include Dean's List recognition at Southeast University and participation in programming contests." 
   },
+
   // Publications
   { 
-    questions: ["publications","papers","articles","research","blogs"], 
-    answer: "I have publications including research papers and articles. You can find them in the Publications section of my portfolio, with links to PDFs and external articles." 
+    questions: ["publications","papers","articles","research","blogs","pdfs"], 
+    answer: "My publications include research papers and articles. Examples: Paper Title — Conference/Journal, Year (PDF available), and other articles on websites/blogs (links available)." 
   },
+
   // Contact Info
   { 
-    questions: ["contact","email","github","whatsapp","reach you","message you","get in touch"], 
-    answer: "You can reach me via GitHub, email, or WhatsApp. All links are available in my portfolio." 
+    questions: ["contact","email","github","whatsapp","reach","message"], 
+    answer: "You can reach me via GitHub (https://github.com/RantuSamadder), email (2022200000149@seu.edu.bd), or WhatsApp (+8801767556635). Links are available on my portfolio." 
   },
+
   // Quick Info
   { 
-    questions: ["quick info","id","department","details","personal info"], 
-    answer: "My ID is 2022200000149 and I am enrolled in the Computer Science & Engineering (CSE) department at Southeast University." 
+    questions: ["quick info","id","department","personal info","details"], 
+    answer: "Quick Info: ID: 2022200000149, Department: Computer Science & Engineering (CSE)." 
   },
+
   // Rover Scout
   { 
-    questions: ["rover scout","scouting","scout","activities outside study"], 
-    answer: "I am active as a Rover Scout, engaging in community service, leadership activities, and outdoor programs." 
+    questions: ["rover scout","scouting","scout activities"], 
+    answer: "I am active as a Rover Scout, engaging in leadership programs, community service, and outdoor activities." 
   },
+
   // IT Secretary
   { 
-    questions: ["it secretary","cultural society","website management","events management"], 
-    answer: "As IT Secretary of the Southeast Cultural Society, I manage the society’s website, digital platforms, and event registrations." 
+    questions: ["it secretary","cultural society","website management","event management"], 
+    answer: "As IT Secretary of the Southeast Cultural Society, I manage the website, digital platforms, and registration for events." 
   },
+
   // Messengers of Peace
   { 
     questions: ["messengers of peace","wosm","peace initiative"], 
-    answer: "I contribute as a Local Coordinator for the Messengers of Peace initiative under WOSM (World Organization of the Scout Movement)." 
+    answer: "I contribute as Local Coordinator for the Messengers of Peace initiative, organized under WOSM (World Organization of the Scout Movement)." 
   },
-  // Default
+
+  // Default fallback
   { 
     questions: ["default"], 
-    answer: "Sorry, I didn't understand. You can ask me about my education, projects, awards, publications, contact info, or other sections on my portfolio." 
+    answer: "I’m not sure about that. You can ask me about my education, projects, awards, publications, contact info, Rover Scout activities, IT Secretary work, or Messengers of Peace involvement." 
   }
 ];
-
 
     function getChatResponse(input) {
       input = input.toLowerCase();
