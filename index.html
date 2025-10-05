@@ -291,14 +291,63 @@
     const sendBtn = document.getElementById('send-btn');
 
     const knowledgeBase = [
-      { questions: ["about","who are you","introduce yourself"], answer: "I am Shree Rantu Samadder, a CSE student at Southeast University. Passionate about programming, Rover scouting, and social projects." },
-      { questions: ["education","school","college","university"], answer: "SSC: Armanitola Govt High School, HSC: Birshreshtha Munshi Abdur Rouf Public College, BSc: Southeast University, CSE." },
-      { questions: ["projects","activities","work"], answer: "Projects: Richardson Extrapolation on Trapezoidal Rule. IT Secretary of Southeast Cultural Society." },
-      { questions: ["awards","achievements"], answer: "Dean's list recognition and programming contest participations." },
-      { questions: ["publications","papers"], answer: "Check the Publications section for papers and articles." },
-      { questions: ["contact","email","github","whatsapp"], answer: "Reach me via GitHub, email, or WhatsApp. Links available on my portfolio." },
-      { questions: ["quick info","id","department"], answer: "ID: 2022200000149, Department: Computer Science & Engineering (CSE)." },
-    ];
+  // About
+  { 
+    questions: ["about","who are you","introduce yourself","background","bio"], 
+    answer: "I am Shree Rantu Samadder, a Computer Science & Engineering student at Southeast University. I am passionate about programming, problem-solving, numerical methods, and software development. I am also active as a Rover Scout and serve as IT Secretary of the Southeast Cultural Society." 
+  },
+  // Education
+  { 
+    questions: ["education","school","college","university","ssc","hsc","bsc","study"], 
+    answer: "I completed my SSC at Armanitola Government High School, HSC at Birshreshtha Munshi Abdur Rouf Public College, and currently pursuing BSc in Computer Science & Engineering at Southeast University." 
+  },
+  // Activities & Projects
+  { 
+    questions: ["projects","activities","work","experience","projects i did"], 
+    answer: "Some of my projects include implementing Richardson Extrapolation on the Trapezoidal Rule, coursework in PHY181, ENG105, Data Structures, and contributions as IT Secretary of the Southeast Cultural Society, managing website, systems, and events. I also serve as Local Coordinator for the Messengers of Peace initiative under WOSM." 
+  },
+  // Awards
+  { 
+    questions: ["awards","achievements","honors","recognition","prizes"], 
+    answer: "I have been recognized on the Dean's List at Southeast University and have participated in programming contests." 
+  },
+  // Publications
+  { 
+    questions: ["publications","papers","articles","research","blogs"], 
+    answer: "I have publications including research papers and articles. You can find them in the Publications section of my portfolio, with links to PDFs and external articles." 
+  },
+  // Contact Info
+  { 
+    questions: ["contact","email","github","whatsapp","reach you","message you","get in touch"], 
+    answer: "You can reach me via GitHub, email, or WhatsApp. All links are available in my portfolio." 
+  },
+  // Quick Info
+  { 
+    questions: ["quick info","id","department","details","personal info"], 
+    answer: "My ID is 2022200000149 and I am enrolled in the Computer Science & Engineering (CSE) department at Southeast University." 
+  },
+  // Rover Scout
+  { 
+    questions: ["rover scout","scouting","scout","activities outside study"], 
+    answer: "I am active as a Rover Scout, engaging in community service, leadership activities, and outdoor programs." 
+  },
+  // IT Secretary
+  { 
+    questions: ["it secretary","cultural society","website management","events management"], 
+    answer: "As IT Secretary of the Southeast Cultural Society, I manage the society’s website, digital platforms, and event registrations." 
+  },
+  // Messengers of Peace
+  { 
+    questions: ["messengers of peace","wosm","peace initiative"], 
+    answer: "I contribute as a Local Coordinator for the Messengers of Peace initiative under WOSM (World Organization of the Scout Movement)." 
+  },
+  // Default
+  { 
+    questions: ["default"], 
+    answer: "Sorry, I didn't understand. You can ask me about my education, projects, awards, publications, contact info, or other sections on my portfolio." 
+  }
+];
+
 
     function getChatResponse(input) {
       input = input.toLowerCase();
