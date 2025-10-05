@@ -338,4 +338,101 @@
           <h2>Chat with Me 🤖</h2>
           <div id="chat-messages"></div>
           <div id="chat-input">
-            <input type="text" id="user-input" placeholder="Ask me about myself..."
+            <input type="text" id="user-input" placeholder="Ask me about myself..." />
+            <button id="send-btn">Send</button>
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <section id="quickinfo">
+          <h2>Quick Info</h2>
+          <p><strong>ID:</strong> 2022200000149</p>
+          <p><strong>Dept:</strong> Computer Science and Engineering (CSE)</p>
+        </section>
+
+        <!-- Robot Animation Section -->
+        <section id="robot-animation" class="centered">
+          <h2>Meet My Robot</h2>
+          <div id="robot"></div>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="footer">© 2025 Rantu Samadder</footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+  <script>
+    // Mobile menu toggle
+    document.getElementById("menuToggle").addEventListener("click", function () {
+      document.getElementById("navLinks").classList.toggle("show");
+    });
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => document.getElementById("navLinks").classList.remove("show"));
+    });
+
+    // Particles.js
+    particlesJS("particles-js", {
+      particles: { number: { value: 80 }, color: { value: "#60a5fa" }, shape: { type: "circle" }, opacity: { value: 0.5 }, size: { value: 3 },
+        line_linked: { enable: true, distance: 120, color: "#60a5fa", opacity: 0.3, width: 1 }, move: { enable: true, speed: 2 }
+      },
+      interactivity: { events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } } },
+      retina_detect: true,
+    });
+
+    // Lottie robot animation
+    lottie.loadAnimation({
+      container: document.getElementById('robot'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'assets/robot.json'
+    });
+
+    // === Chatbot ===
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    const knowledgeBase = [
+      { questions: ["about", "who are you", "introduce yourself"], answer: "I am Shree Rantu Samadder, a CSE student at Southeast University. I am passionate about programming, Rover scouting, and contributing to social projects." },
+      { questions: ["education", "school", "college", "university"], answer: "I studied at Armanitola Government High School (SSC), Birshreshtha Munshi Abdur Rouf Public College (HSC), and now pursuing BSc in CSE at Southeast University." },
+      { questions: ["projects", "activities", "work"], answer: "I have worked on projects like Richardson Extrapolation on Trapezoidal Rule, and I serve as IT Secretary of the Southeast Cultural Society." },
+      { questions: ["awards", "achievements"], answer: "I have received Dean's list recognition and participated in programming contests." },
+      { questions: ["publications", "papers"], answer: "I have published articles and papers, you can check them in the Publications section." },
+      { questions: ["contact", "email", "github", "whatsapp"], answer: "You can reach me via GitHub, email, or WhatsApp. Links are available on my portfolio." },
+      { questions: ["quick info", "id", "department"], answer: "My ID is 2022200000149, and I am in the Computer Science & Engineering (CSE) department." },
+    ];
+
+    function getChatResponse(input) {
+      input = input.toLowerCase();
+      for (let item of knowledgeBase) {
+        for (let q of item.questions) {
+          if (input.includes(q)) return item.answer;
+        }
+      }
+      return "Sorry, I don't understand. Try asking about my education, projects, or contact info.";
+    }
+
+    function addMessage(sender, text) {
+      const p = document.createElement('p');
+      p.textContent = (sender === 'user' ? "You: " : "Rantu: ") + text;
+      chatMessages.appendChild(p);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendBtn.addEventListener('click', () => {
+      const input = userInput.value.trim();
+      if (!input) return;
+      addMessage('user', input);
+      setTimeout(() => addMessage('bot', getChatResponse(input)), 300);
+      userInput.value = '';
+    });
+
+    userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendBtn.click(); });
+  </script>
+</body>
+</html>
