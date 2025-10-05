@@ -40,7 +40,7 @@
       z-index: 1;
     }
 
-    /* ===== Responsive Header Bar ===== */
+    /* ===== Header ===== */
     .site-header {
       width: 100%;
       background: rgba(255, 255, 255, 0.02);
@@ -214,11 +214,12 @@
     #robot { width: 300px; height: 300px; margin: 0 auto; }
 
     /* Chatbot styling */
-    #chatbot { max-width: 400px; margin: 24px auto; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 12px; }
-    #chat-messages { height: 200px; overflow-y: auto; margin-bottom: 8px; padding: 8px; background: rgba(255,255,255,0.05); border-radius: 6px; }
+    #chatbot { max-width: 400px; margin: 24px auto; background: rgba(255,255,255,0.05); padding: 16px; border-radius: 12px; }
+    #chat-messages { height: 250px; overflow-y: auto; background: rgba(0,0,0,0.1); padding: 8px; border-radius: 8px; margin-bottom: 8px; }
     #chat-messages p { margin: 4px 0; }
-    #chat-input { width: 70%; padding: 6px; border-radius: 6px; border: none; }
-    #chat-send { padding: 6px 12px; border-radius: 6px; border: none; background: var(--accent); color: #04203a; cursor: pointer; }
+    #chat-input { display: flex; gap: 6px; }
+    #chat-input input { flex: 1; padding: 6px; border-radius: 6px; border: none; }
+    #chat-input button { padding: 6px 12px; border-radius: 6px; border: none; background: var(--accent); color: #04203a; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -262,12 +263,14 @@
 
     <div class="grid">
       <main>
+        <!-- About Section -->
         <section id="about">
           <h2>About</h2>
           <p>Hare Krishna, I am Shree Rantu Samadder, a Computer Science and Engineering student at Southeast University. I am passionate about learning, problem-solving, and applying technology to real-world challenges. My interests include numerical methods, data structures, and software development. Beyond academics, I am active as a Rover Scout and serve as the IT Secretary of the Southeast Cultural Society, where I manage digital platforms and events. I also contribute as a Local Coordinator for the Messengers of Peace initiative. I enjoy building projects that combine technical knowledge with community impact.</p>
           <p class="centered"><a class="cta" href="assets/CV.pdf" target="_blank">Download CV</a></p>
         </section>
 
+        <!-- Education Section -->
         <section id="education">
           <h2>Education — timeline</h2>
           <div class="timeline">
@@ -289,6 +292,7 @@
           </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects">
           <h2>Activities & Projects</h2>
           <div class="cards">
@@ -311,6 +315,7 @@
           </div>
         </section>
 
+        <!-- Awards Section -->
         <section id="awards">
           <h2>Awards</h2>
           <ul>
@@ -319,6 +324,7 @@
           </ul>
         </section>
 
+        <!-- Publications Section -->
         <section id="publications">
           <h2>Publications</h2>
           <ul class="pub-list">
@@ -326,20 +332,10 @@
             <li><strong>Article</strong> — Website/Blog, Year. <a href="https://example.com" target="_blank">Link</a></li>
           </ul>
         </section>
-      </main>
-
-      <aside>
-        <section id="quickinfo">
-          <h2>Quick Info</h2>
-          <p><strong>ID:</strong> 2022200000149</p>
-          <p><strong>Dept:</strong> Computer Science and Engineering (CSE)</p>
-        </section>
-
-        <!-- Robot Animation Section -->
-        <section id="robot-animation" class="centered">
-          <h2>Meet My Robot</h2>
-          <div id="robot"></div>
-        </section>
 
         <!-- Chatbot Section -->
-        <section id="chatbot" class="centered">
+        <section id="chatbot">
+          <h2>Chat with Me 🤖</h2>
+          <div id="chat-messages"></div>
+          <div id="chat-input">
+            <input type="text" id="user-input" placeholder="Ask me about myself..."
