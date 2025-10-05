@@ -175,6 +175,12 @@
       background: rgba(255, 255, 255, 0.02);
       border-radius: 12px;
     }
+    section p {
+      overflow: visible;
+      white-space: normal;
+      word-wrap: break-word;
+      text-align: left;
+    }
     .grid {
       display: grid;
       grid-template-columns: 1fr 320px;
@@ -335,7 +341,7 @@
       <main>
         <section id="about">
           <h2>About</h2>
-          <p>Hare Krishna, I am Rantu Samadder, a Computer Science and Engineering student at Southeast University...</p>
+          <p>Hare Krishna, I am Rantu Samadder, a Computer Science and Engineering student at Southeast University. I am passionate about coding, web development, and participating in scouting activities. I also contribute to various initiatives like Messengers of Peace.</p>
           <p><a class="cta" href="assets/CV.pdf" target="_blank">Download CV</a></p>
         </section>
 
@@ -417,6 +423,13 @@
     // Toggle Mobile Menu
     document.getElementById("menuToggle").addEventListener("click", function () {
       document.getElementById("navLinks").classList.toggle("show");
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("show");
+      });
     });
 
     // Initialize particles.js
