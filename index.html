@@ -19,9 +19,7 @@
 
     * { box-sizing: border-box; }
 
-    html {
-      scroll-padding-top: 70px;
-    }
+    html { scroll-padding-top: 70px; }
 
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial;
@@ -213,18 +211,20 @@
     #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
     /* Robot animation styling */
-    #robot {
-      width: 300px;
-      height: 300px;
-      margin: 0 auto;
-    }
+    #robot { width: 300px; height: 300px; margin: 0 auto; }
+
+    /* Chatbot styling */
+    #chatbot { max-width: 400px; margin: 24px auto; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 12px; }
+    #chat-messages { height: 200px; overflow-y: auto; margin-bottom: 8px; padding: 8px; background: rgba(255,255,255,0.05); border-radius: 6px; }
+    #chat-messages p { margin: 4px 0; }
+    #chat-input { width: 70%; padding: 6px; border-radius: 6px; border: none; }
+    #chat-send { padding: 6px 12px; border-radius: 6px; border: none; background: var(--accent); color: #04203a; cursor: pointer; }
   </style>
 </head>
 <body>
-  <!-- Particle background -->
   <div id="particles-js"></div>
 
-  <!-- ===== Responsive Header Bar ===== -->
+  <!-- Header -->
   <header class="site-header">
     <div class="nav-container">
       <a href="https://rantusamadder.github.io" class="site-title">rantusamadder.github.io</a>
@@ -340,62 +340,6 @@
           <h2>Meet My Robot</h2>
           <div id="robot"></div>
         </section>
-      </aside>
-    </div>
 
-    <footer class="footer">© 2025 Rantu Samadder</footer>
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
-  <script>
-    // Toggle Mobile Menu
-    document.getElementById("menuToggle").addEventListener("click", function () {
-      document.getElementById("navLinks").classList.toggle("show");
-    });
-
-    // Close mobile menu when a link is clicked
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        document.getElementById("navLinks").classList.remove("show");
-      });
-    });
-
-    // Initialize particles.js
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 80 },
-        color: { value: "#60a5fa" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        line_linked: {
-          enable: true,
-          distance: 120,
-          color: "#60a5fa",
-          opacity: 0.3,
-          width: 1,
-        },
-        move: { enable: true, speed: 2 },
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: true, mode: "push" },
-        },
-      },
-      retina_detect: true,
-    });
-
-    // Load Lottie robot animation
-    lottie.loadAnimation({
-      container: document.getElementById('robot'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'assets/robot.json' // Replace with your robot animation JSON file
-    });
-  </script>
-</body>
-</html>
+        <!-- Chatbot Section -->
+        <section id="chatbot" class="centered">
