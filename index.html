@@ -59,9 +59,7 @@
       color: var(--text);
       text-decoration: none;
     }
-    .site-title:hover {
-      color: var(--accent);
-    }
+    .site-title:hover { color: var(--accent); }
     .nav-links {
       display: flex;
       gap: 20px;
@@ -72,9 +70,7 @@
       font-weight: 500;
       transition: all 0.3s ease;
     }
-    .nav-links a:hover {
-      color: var(--accent);
-    }
+    .nav-links a:hover { color: var(--accent); }
     .menu-toggle {
       display: none;
       background: none;
@@ -84,9 +80,7 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-    .menu-toggle:hover {
-      transform: scale(1.2);
-    }
+    .menu-toggle:hover { transform: scale(1.2); }
     @media (max-width: 800px) {
       .nav-links {
         display: none;
@@ -107,9 +101,7 @@
         opacity: 1;
         transform: translateY(0);
       }
-      .menu-toggle {
-        display: block;
-      }
+      .menu-toggle { display: block; }
     }
 
     /* ===== Main Layout ===== */
@@ -143,24 +135,10 @@
       background: linear-gradient(135deg, #1f2937, #111827);
       color: var(--text);
     }
-    h1 {
-      font-size: 28px;
-      margin: 0;
-    }
-    h2 {
-      font-size: 20px;
-      margin: 8px 0;
-      color: var(--accent);
-    }
-    .lead {
-      color: var(--muted);
-      margin-top: 6px;
-    }
-    .socials {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-    }
+    h1 { font-size: 28px; margin: 0; }
+    h2 { font-size: 20px; margin: 8px 0; color: var(--accent); }
+    .lead { color: var(--muted); margin-top: 6px; }
+    .socials { display: flex; gap: 8px; margin-top: 8px; }
     .socials a {
       color: var(--text);
       text-decoration: none;
@@ -169,43 +147,16 @@
       background: rgba(255, 255, 255, 0.02);
       font-size: 14px;
     }
-    section {
-      margin-top: 24px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 12px;
-    }
-    section p {
-      overflow: visible;
-      white-space: normal;
-      word-wrap: break-word;
-      text-align: left;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 20px;
-    }
+    section { margin-top: 24px; padding: 18px; background: rgba(255, 255, 255, 0.02); border-radius: 12px; }
+    section p { overflow: visible; white-space: normal; word-wrap: break-word; text-align: left; }
+    .centered { text-align: center; } /* Added for centering CTA buttons */
+    .grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
     @media (max-width: 880px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-      .avatar {
-        width: 110px;
-        height: 110px;
-        flex: 0 0 110px;
-      }
-      .container {
-        padding: 12px;
-      }
+      .grid { grid-template-columns: 1fr; }
+      .avatar { width: 110px; height: 110px; flex: 0 0 110px; }
+      .container { padding: 12px; }
     }
-    .timeline {
-      position: relative;
-      padding-left: 18px;
-      margin: 0 auto;
-      max-width: 600px;
-      text-align: left;
-    }
+    .timeline { position: relative; padding-left: 18px; margin: 0 auto; max-width: 600px; text-align: left; }
     .timeline::before {
       content: "";
       position: absolute;
@@ -215,10 +166,7 @@
       width: 2px;
       background: linear-gradient(180deg, var(--accent), transparent);
     }
-    .timeline-item {
-      position: relative;
-      padding: 12px 0 12px 18px;
-    }
+    .timeline-item { position: relative; padding: 12px 0 12px 18px; }
     .timeline-item .dot {
       position: absolute;
       left: -2px;
@@ -229,17 +177,8 @@
       background: var(--accent);
       box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.08);
     }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      justify-content: center;
-    }
-    @media (max-width: 600px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
-    }
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; justify-content: center; }
+    @media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
     .card {
       padding: 12px;
       border-radius: 10px;
@@ -248,26 +187,10 @@
       text-align: center;
       transition: all 0.3s ease;
     }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    }
-    .pub-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .pub-list li {
-      padding: 8px 0;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
-    }
-    .footer {
-      opacity: 0.8;
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 14px;
-      text-align: center;
-    }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); }
+    .pub-list { list-style: none; padding: 0; margin: 0; }
+    .pub-list li { padding: 8px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.03); }
+    .footer { opacity: 0.8; color: var(--muted); font-size: 13px; margin-top: 14px; text-align: center; }
     a.cta {
       display: inline-block;
       padding: 10px 14px;
@@ -278,23 +201,9 @@
       font-weight: 600;
       transition: all 0.3s ease;
     }
-    a.cta:hover {
-      background: #04203a;
-      color: var(--accent);
-      transform: scale(1.05);
-    }
-    main,
-    main section {
-      text-align: center;
-    }
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
+    a.cta:hover { background: #04203a; color: var(--accent); transform: scale(1.05); }
+    main, main section { text-align: center; }
+    #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
   </style>
 </head>
 <body>
@@ -342,7 +251,7 @@
         <section id="about">
           <h2>About</h2>
           <p>Hare Krishna, I am Rantu Samadder, a Computer Science and Engineering student at Southeast University. I am passionate about learning, problem-solving, and applying technology to real-world challenges. My interests include numerical methods, data structures, and software development. Beyond academics, I am active as a Rover Scout and serve as the IT Secretary of the Southeast Cultural Society, where I manage digital platforms and events. I also contribute as a Local Coordinator for the Messengers of Peace initiative. I enjoy building projects that combine technical knowledge with community impact.</p>
-          <p><a class="cta" href="assets/CV.pdf" target="_blank">Download CV</a></p>
+          <p class="centered"><a class="cta" href="assets/CV.pdf" target="_blank">Download CV</a></p>
         </section>
 
         <section id="education">
