@@ -75,86 +75,27 @@
       .menu-toggle { display: block; }
     }
 
-    /* ===== Avatar + Centered Header ===== */
-    header.centered {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .avatar-wrapper {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #wing-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 180px;
-      height: 180px;
-      z-index: 0;
-      pointer-events: none;
-      transform: scale(1.8);
-      opacity: 0.9;
-    }
-
-    .avatar {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid rgba(255,255,255,0.08);
-      background: radial-gradient(circle at center, #1a032b, #070313);
-      z-index: 2;
-      box-shadow: 0 0 25px rgba(180, 0, 255, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .initials {
-      width: 100%;
-      height: 100%;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 48px;
-      border-radius: 50%;
-      background: radial-gradient(circle at center, #2d033b, #0d0018);
-      color: var(--text);
-    }
-
-    @media (max-width: 600px) {
-      .avatar-wrapper { width: 140px; height: 140px; }
-      #wing-bg { transform: scale(1.5); }
-    }
-
     /* ===== Main Layout ===== */
-    h1 { font-size: 28px; margin: 12px 0 6px 0; }
+    .avatar { 
+      width: 140px; height: 140px; border-radius: 12px; overflow: hidden; 
+      border: 4px solid rgba(255,255,255,0.06); 
+      display: flex; align-items: center; justify-content: center; 
+      background: linear-gradient(135deg, #0b1220, #0a1b2f); 
+      margin: 0 auto 16px auto; /* Center the avatar */
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .initials { width: 100%; height: 100%; display: none; align-items: center; justify-content: center; font-weight: 700; font-size: 48px; border-radius: 12px; background: linear-gradient(135deg, #1f2937, #111827); color: var(--text); }
+    header .header-left { text-align: center; } /* Center all header content */
+    h1 { font-size: 28px; margin: 0; }
     h2 { font-size: 20px; margin: 8px 0; color: var(--accent); }
     .lead { color: var(--muted); margin-top: 6px; }
-    .socials { display: flex; gap: 8px; margin-top: 8px; }
+    .socials { display: flex; gap: 8px; margin-top: 8px; justify-content: center; }
     .socials a { color: var(--text); text-decoration: none; padding: 8px; border-radius: 8px; background: rgba(255,255,255,0.02); font-size: 14px; }
     section { margin-top: 24px; padding: 18px; background: rgba(255, 255, 255, 0.02); border-radius: 12px; }
     section p { overflow: visible; white-space: normal; word-wrap: break-word; text-align: left; }
     .centered { text-align: center; }
     .grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
-    @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } .container { padding: 12px; } }
+    @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } .avatar { width: 110px; height: 110px; } .container { padding: 12px; } }
     .timeline { position: relative; padding-left: 18px; margin: 0 auto; max-width: 600px; text-align: left; }
     .timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent), transparent); }
     .timeline-item { position: relative; padding: 12px 0 12px 18px; }
@@ -202,22 +143,20 @@
   </header>
 
   <div class="container">
-    <header class="centered">
-      <div class="avatar-wrapper">
-        <div id="wing-bg"></div>
+    <header>
+      <div class="header-left">
         <div class="avatar">
           <img src="assets/profile.jpg" alt="Rantu Samadder"
             onerror="this.style.display='none';document.getElementById('initials').style.display='flex'" />
           <div id="initials" class="initials">RS</div>
         </div>
-      </div>
-
-      <h1>SHREE RANTU SAMADDER</h1>
-      <div class="lead">Computer Science & Engineering student • Rover Scout</div>
-      <div class="socials">
-        <a href="https://github.com/RantuSamadder" target="_blank">GitHub</a>
-        <a href="mailto:2022200000149@seu.edu.bd">Email</a>
-        <a href="https://wa.me/1767556635">WhatsApp</a>
+        <h1>SHREE RANTU SAMADDER</h1>
+        <div class="lead">Computer Science & Engineering student • Rover Scout</div>
+        <div class="socials">
+          <a href="https://github.com/RantuSamadder" target="_blank">GitHub</a>
+          <a href="mailto:2022200000149@seu.edu.bd">Email</a>
+          <a href="https://wa.me/1767556635">WhatsApp</a>
+        </div>
       </div>
     </header>
 
@@ -336,19 +275,67 @@
     // Particles.js
     particlesJS("particles-js", {
       particles: { number: { value: 80 }, color: { value: "#60a5fa" }, shape: { type: "circle" }, opacity: { value: 0.5 }, size: { value: 3 },
-        line_linked: { enable: true, distance: 120, color: "#60a5fa", opacity: 0.3, width: 1 },
-        move: { enable: true, speed: 2 }
-      }
+        line_linked: { enable: true, distance: 120, color: "#60a5fa", opacity: 0.3, width: 1 }, move: { enable: true, speed: 2 }
+      },
+      interactivity: { events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } } },
+      retina_detect: true,
     });
 
-    // Vampire wing Lottie animation
+    // Robot Animation
     lottie.loadAnimation({
-      container: document.getElementById('wing-bg'),
+      container: document.getElementById('robot'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'https://lottie.host/4f9e7f20-0c48-49a1-94af-427c8cf6e13c/Lv7XL7s7hY.json' // glowing wing animation
+      path: 'assets/robot.json'
     });
+
+    // === Advanced Chatbot ===
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    const knowledgeBase = [
+      { questions: ["about","who are you","introduce yourself","bio","background"], answer: "I am Shree Rantu Samadder, a Computer Science & Engineering student at Southeast University. I am passionate about programming, problem-solving, numerical methods, and software development. I am also a Rover Scout, IT Secretary of Southeast Cultural Society, and Local Coordinator for the Messengers of Peace initiative." },
+      { questions: ["ssc","secondary school","high school"], answer: "SSC: Armanitola Government High School | 2014 – 2019" },
+      { questions: ["hsc","higher secondary","college"], answer: "HSC: Birshreshtha Munshi Abdur Rouf Public College | 2019 – 2021" },
+      { questions: ["bsc","university","bachelor","bachelor of science"], answer: "BSc: Southeast University | Computer Science & Engineering | 2022 – present" },
+      { questions: ["education","study","school","college","university","timeline"], answer: "My full education timeline: SSC at Armanitola Government High School (2014–2019), HSC at Birshreshtha Munshi Abdur Rouf Public College (2019–2021), BSc in Computer Science & Engineering at Southeast University (2022–present)." },
+      { questions: ["activities","projects","work","experience"], answer: "My activities and projects include: 1) Richardson Extrapolation on Trapezoidal Rule project. 2) Coursework (PHY181, ENG105, Data Structures etc.). 3) IT Secretary of Southeast Cultural Society. 4) Messengers of Peace initiative." },
+      { questions: ["richardson extrapolation","trapezoidal rule project","project"], answer: "I implemented and explained Richardson Extrapolation for the Trapezoidal Rule to improve numerical integration accuracy." },
+      { questions: ["coursework","courses","subjects"], answer: "My coursework includes PHY181, ENG105, Data Structures, and other Computer Science & Engineering courses." },
+      { questions: ["it secretary","cultural society","website management","event management"], answer: "As IT Secretary of Southeast Cultural Society, I manage the website, digital platforms, and registration for events." },
+      { questions: ["messengers of peace","wosm","peace initiative"], answer: "I contribute as Local Coordinator for the Messengers of Peace initiative, organized under WOSM (World Organization of the Scout Movement)." },
+      { questions: ["awards","achievements","honors","recognition","prizes"], answer: "Awards include Dean's List recognition at Southeast University and participation in programming contests." },
+      { questions: ["publications","papers","articles","research","blogs","pdfs"], answer: "My publications include research papers and articles. Examples: Paper Title — Conference/Journal, Year (PDF available), and other articles on websites/blogs (links available)." },
+      { questions: ["contact","email","github","whatsapp","reach","message"], answer: "You can reach me via GitHub (https://github.com/RantuSamadder), email (2022200000149@seu.edu.bd), or WhatsApp (+8801767556635). Links are available on my portfolio." },
+      { questions: ["quick info","id","department","personal info","details"], answer: "Quick Info: ID: 2022200000149, Department: Computer Science & Engineering (CSE)." },
+      { questions: ["rover scout","scouting","scout activities"], answer: "I am active as a Rover Scout, engaging in leadership programs, community service, and outdoor activities." },
+      { questions: ["default"], answer: "I’m not sure about that. You can ask me about my education, projects, awards, publications, contact info, Rover Scout activities, IT Secretary work, or Messengers of Peace involvement." }
+    ];
+
+    function getChatResponse(input) {
+      input = input.toLowerCase();
+      let matched = "";
+      knowledgeBase.forEach(item => { item.questions.forEach(q => { if(input.includes(q)) matched = item.answer; }); });
+      return matched || "Sorry, I didn't understand. Try asking about my education, projects, or contact info.";
+    }
+
+    function addMessage(sender, text) {
+      const p = document.createElement('p');
+      p.textContent = (sender==='user'? "You: ":"Rantu: ") + text;
+      chatMessages.appendChild(p);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendBtn.addEventListener('click', () => {
+      const input = userInput.value.trim();
+      if(!input) return;
+      addMessage('user', input);
+      setTimeout(() => addMessage('bot', getChatResponse(input)), 300);
+      userInput.value = '';
+    });
+    userInput.addEventListener('keypress', e => { if(e.key==='Enter') sendBtn.click(); });
   </script>
 </body>
 </html>
