@@ -75,67 +75,20 @@
       .menu-toggle { display: block; }
     }
 
-    /* ===== Avatar with Vampire Wings ===== */
-    .avatar {
-      position: relative;
-      width: 140px;
-      height: 140px;
-      border-radius: 12px;
-      overflow: hidden;
-      flex: 0 0 140px;
-      border: 4px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at center, #0e1b3d 0%, #071029 100%);
-      margin: 0 auto;
-      box-shadow: 0 0 20px rgba(96,165,250,0.1);
-    }
-
-    .avatar::before,
-    .avatar::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      width: 180px;
-      height: 130px;
-      background: url('assets/vampire-wing.png') no-repeat center/contain;
-      opacity: 0.35;
-      filter: drop-shadow(0 0 8px rgba(96,165,250,0.25));
-      transform: translateY(-50%);
-      z-index: -1;
-      transition: all 0.4s ease-in-out;
-    }
-
-    .avatar::before {
-      left: 50%;
-      transform: translate(-185px, -50%) scaleX(-1);
-    }
-
-    .avatar::after {
-      right: 50%;
-      transform: translate(185px, -50%);
-    }
-
-    .avatar:hover::before,
-    .avatar:hover::after {
-      opacity: 0.55;
-      filter: drop-shadow(0 0 12px rgba(96,165,250,0.45));
-    }
-
+    /* ===== Main Layout ===== */
+    .avatar { width: 140px; height: 140px; border-radius: 12px; overflow: hidden; flex: 0 0 140px; border: 4px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0b1220, #0a1b2f); }
     .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .initials { width: 100%; height: 100%; display: none; align-items: center; justify-content: center; font-weight: 700; font-size: 48px; border-radius: 12px; background: linear-gradient(135deg, #1f2937, #111827); color: var(--text); }
-
-    h1 { font-size: 28px; margin: 0; text-align: center; }
-    h2 { font-size: 20px; margin: 8px 0; color: var(--accent); text-align: center; }
-    .lead { color: var(--muted); margin-top: 6px; text-align: center; }
-    .socials { display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
+    h1 { font-size: 28px; margin: 0; }
+    h2 { font-size: 20px; margin: 8px 0; color: var(--accent); }
+    .lead { color: var(--muted); margin-top: 6px; }
+    .socials { display: flex; gap: 8px; margin-top: 8px; }
     .socials a { color: var(--text); text-decoration: none; padding: 8px; border-radius: 8px; background: rgba(255,255,255,0.02); font-size: 14px; }
     section { margin-top: 24px; padding: 18px; background: rgba(255, 255, 255, 0.02); border-radius: 12px; }
     section p { overflow: visible; white-space: normal; word-wrap: break-word; text-align: left; }
     .centered { text-align: center; }
     .grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
-    @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } .container { padding: 12px; } }
+    @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } .avatar { width: 110px; height: 110px; flex: 0 0 110px; } .container { padding: 12px; } }
     .timeline { position: relative; padding-left: 18px; margin: 0 auto; max-width: 600px; text-align: left; }
     .timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent), transparent); }
     .timeline-item { position: relative; padding: 12px 0 12px 18px; }
@@ -163,7 +116,6 @@
     #chat-input button { padding: 6px 12px; border-radius: 6px; border: none; background: var(--accent); color: #04203a; cursor: pointer; }
   </style>
 </head>
-
 <body>
   <div id="particles-js"></div>
 
@@ -185,61 +137,93 @@
 
   <div class="container">
     <header>
-      <div class="avatar">
-        <img src="assets/profile.jpg" alt="Rantu Samadder"
-          onerror="this.style.display='none';document.getElementById('initials').style.display='flex'" />
-        <div id="initials" class="initials">RS</div>
-      </div>
-      <h1>SHREE RANTU SAMADDER</h1>
-      <div class="lead">Computer Science & Engineering student • Rover Scout</div>
-      <div class="socials">
-        <a href="https://github.com/RantuSamadder" target="_blank">GitHub</a>
-        <a href="mailto:2022200000149@seu.edu.bd">Email</a>
-        <a href="https://wa.me/1767556635">WhatsApp</a>
+      <div class="header-left">
+        <div class="avatar">
+          <img src="assets/profile.jpg" alt="Rantu Samadder"
+            onerror="this.style.display='none';document.getElementById('initials').style.display='flex'" />
+          <div id="initials" class="initials">RS</div>
+        </div>
+        <div>
+          <h1>SHREE RANTU SAMADDER</h1>
+          <div class="lead">Computer Science & Engineering student • Rover Scout</div>
+          <div class="socials">
+            <a href="https://github.com/RantuSamadder" target="_blank">GitHub</a>
+            <a href="mailto:2022200000149@seu.edu.bd">Email</a>
+            <a href="https://wa.me/1767556635">WhatsApp</a>
+          </div>
+        </div>
       </div>
     </header>
 
     <div class="grid">
       <main>
-        <!-- About -->
+        <!-- About Section -->
         <section id="about">
           <h2>About</h2>
-          <p>Hare Krishna, I am Shree Rantu Samadder, a Computer Science and Engineering student at Southeast University. I am passionate about learning, problem-solving, and applying technology to real-world challenges...</p>
+          <p>Hare Krishna, I am Shree Rantu Samadder, a Computer Science and Engineering student at Southeast University. I am passionate about learning, problem-solving, and applying technology to real-world challenges. My interests include numerical methods, data structures, and software development. Beyond academics, I am active as a Rover Scout and serve as the IT Secretary of the Southeast Cultural Society, where I manage digital platforms and events. I also contribute as a Local Coordinator for the Messengers of Peace initiative. I enjoy building projects that combine technical knowledge with community impact.</p>
           <p class="centered"><a class="cta" href="assets/CV.pdf" target="_blank">Download CV</a></p>
         </section>
 
-        <!-- Education -->
+        <!-- Education Section -->
         <section id="education">
           <h2>Education — timeline</h2>
           <div class="timeline">
-            <div class="timeline-item"><div class="dot"></div><strong>BSc — CSE</strong><br /><small class="lead">Southeast University | 2022 – present</small></div>
-            <div class="timeline-item"><div class="dot"></div><strong>HSC</strong><br /><small class="lead">Birshreshtha Munshi Abdur Rouf Public College | 2019 – 2021</small></div>
-            <div class="timeline-item"><div class="dot"></div><strong>SSC</strong><br /><small class="lead">Armanitola Government High School | 2014 – 2019</small></div>
+            <div class="timeline-item">
+              <div class="dot"></div>
+              <strong>Bachelor of Science — Computer Science & Engineering</strong><br />
+              <small class="lead">Southeast University, Dhaka - 1208 | 2022 – present</small>
+            </div>
+            <div class="timeline-item">
+              <div class="dot"></div>
+              <strong>Higher Secondary Certificate (HSC)</strong><br />
+              <small class="lead">Birshreshtha Munshi Abdur Rouf Public College, Dhaka - 1205 | 2019 – 2021</small>
+            </div>
+            <div class="timeline-item">
+              <div class="dot"></div>
+              <strong>Secondary School Certificate (SSC)</strong><br />
+              <small class="lead">Armanitola Government High School, Dhaka - 1100 | 2014 – 2019</small>
+            </div>
           </div>
         </section>
 
-        <!-- Projects -->
+        <!-- Projects Section -->
         <section id="projects">
           <h2>Activities & Projects</h2>
           <div class="cards">
-            <div class="card"><strong>Project: Richardson Extrapolation</strong><p>Improving trapezoidal rule accuracy via extrapolation.</p></div>
-            <div class="card"><strong>Coursework</strong><p>PHY181, ENG105, Data Structures etc.</p></div>
-            <div class="card"><strong>IT Secretary</strong><p>Managing SEU Cultural Society digital operations.</p></div>
-            <div class="card"><strong>Messengers of Peace</strong><p>Local Coordinator under WOSM initiative.</p></div>
+            <div class="card">
+              <strong>Project: Richardson Extrapolation on Trapezoidal Rule</strong>
+              <p>Implementation and explanation of Richardson Extrapolation for improving the accuracy of the Trapezoidal Rule, with comparison of results before and after extrapolation.</p>
+            </div>
+            <div class="card">
+              <strong>Coursework</strong>
+              <p>PHY181, ENG105, Data Structures etc.</p>
+            </div>
+            <div class="card">
+              <strong>IT Secretary</strong>
+              <p>Managing website, systems, and event registrations for Southeast Cultural Society.</p>
+            </div>
+            <div class="card">
+              <strong>Messengers of Peace</strong>
+              <p>Contributing as Local Coordinator under WOSM initiative.</p>
+            </div>
           </div>
         </section>
 
-        <!-- Awards -->
+        <!-- Awards Section -->
         <section id="awards">
           <h2>Awards</h2>
-          <ul><li>Dean's List — SEU</li><li>Programming Contest — Position</li></ul>
+          <ul>
+            <li>Dean's list, Southeast University — Year</li>
+            <li>Programming contest — Position, Year</li>
+          </ul>
         </section>
 
-        <!-- Publications -->
+        <!-- Publications Section -->
         <section id="publications">
           <h2>Publications</h2>
           <ul class="pub-list">
-            <li><strong>Paper Title</strong> — Conference/Journal. <a href="assets/paper1.pdf">PDF</a></li>
+            <li><strong>Paper Title</strong> — Conference/Journal, Year. <a href="assets/paper1.pdf">PDF</a></li>
+            <li><strong>Article</strong> — Website/Blog, Year. <a href="https://example.com" target="_blank">Link</a></li>
           </ul>
         </section>
       </main>
@@ -248,10 +232,10 @@
         <section id="quickinfo">
           <h2>Quick Info</h2>
           <p><strong>ID:</strong> 2022200000149</p>
-          <p><strong>Dept:</strong> Computer Science & Engineering (CSE)</p>
+          <p><strong>Dept:</strong> Computer Science and Engineering (CSE)</p>
         </section>
 
-        <!-- Robot + Chatbot -->
+        <!-- Robot + Chatbot Section -->
         <section id="robot-animation" class="centered">
           <h2>Meet My Robot 🤖</h2>
           <div id="robot-chat-container">
@@ -275,7 +259,7 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
   <script>
-    // Mobile Menu
+    // Mobile Menu Toggle
     document.getElementById("menuToggle").addEventListener("click", () => {
       document.getElementById("navLinks").classList.toggle("show");
     });
@@ -283,7 +267,7 @@
       link.addEventListener("click", () => document.getElementById("navLinks").classList.remove("show"));
     });
 
-    // Particles Background
+    // Particles.js
     particlesJS("particles-js", {
       particles: { number: { value: 80 }, color: { value: "#60a5fa" }, shape: { type: "circle" }, opacity: { value: 0.5 }, size: { value: 3 },
         line_linked: { enable: true, distance: 120, color: "#60a5fa", opacity: 0.3, width: 1 }, move: { enable: true, speed: 2 }
@@ -300,6 +284,122 @@
       autoplay: true,
       path: 'assets/robot.json'
     });
+
+    // === Advanced Chatbot ===
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    const knowledgeBase = [
+  // About
+  { 
+    questions: ["about","who are you","introduce yourself","bio","background"], 
+    answer: "I am Shree Rantu Samadder, a Computer Science & Engineering student at Southeast University. I am passionate about programming, problem-solving, numerical methods, and software development. I am also a Rover Scout, IT Secretary of Southeast Cultural Society, and Local Coordinator for the Messengers of Peace initiative." 
+  },
+
+ // Education — granular
+{ 
+  questions: ["ssc","secondary school","high school"], 
+  answer: "SSC: Armanitola Government High School | 2014 – 2019" 
+},
+{ 
+  questions: ["hsc","higher secondary","college"], 
+  answer: "HSC: Birshreshtha Munshi Abdur Rouf Public College | 2019 – 2021" 
+},
+{ 
+  questions: ["bsc","university","bachelor","bachelor of science"], 
+  answer: "BSc: Southeast University | Computer Science & Engineering | 2022 – present" 
+},
+{ 
+  questions: ["education","study","school","college","university","timeline"], 
+  answer: "My full education timeline: SSC at Armanitola Government High School (2014–2019), HSC at Birshreshtha Munshi Abdur Rouf Public College (2019–2021), BSc in Computer Science & Engineering at Southeast University (2022–present)." 
+},
+      
+  // Activities & Projects — general
+  { 
+    questions: ["activities","projects","work","experience"], 
+    answer: "My activities and projects include: 1) Richardson Extrapolation on Trapezoidal Rule project. 2) Coursework (PHY181, ENG105, Data Structures etc.). 3) IT Secretary of Southeast Cultural Society. 4) Messengers of Peace initiative." 
+  },
+
+  // Activities & Projects — specific sub-sections
+  { 
+    questions: ["richardson extrapolation","trapezoidal rule project","project"], 
+    answer: "I implemented and explained Richardson Extrapolation for the Trapezoidal Rule to improve numerical integration accuracy." 
+  },
+  { 
+    questions: ["coursework","courses","subjects"], 
+    answer: "My coursework includes PHY181, ENG105, Data Structures, and other Computer Science & Engineering courses." 
+  },
+  { 
+    questions: ["it secretary","cultural society","website management","event management"], 
+    answer: "As IT Secretary of Southeast Cultural Society, I manage the website, digital platforms, and registration for events." 
+  },
+  { 
+    questions: ["messengers of peace","wosm","peace initiative"], 
+    answer: "I contribute as Local Coordinator for the Messengers of Peace initiative, organized under WOSM (World Organization of the Scout Movement)." 
+  },
+
+  // Awards
+  { 
+    questions: ["awards","achievements","honors","recognition","prizes"], 
+    answer: "Awards include Dean's List recognition at Southeast University and participation in programming contests." 
+  },
+
+  // Publications
+  { 
+    questions: ["publications","papers","articles","research","blogs","pdfs"], 
+    answer: "My publications include research papers and articles. Examples: Paper Title — Conference/Journal, Year (PDF available), and other articles on websites/blogs (links available)." 
+  },
+
+  // Contact Info
+  { 
+    questions: ["contact","email","github","whatsapp","reach","message"], 
+    answer: "You can reach me via GitHub (https://github.com/RantuSamadder), email (2022200000149@seu.edu.bd), or WhatsApp (+8801767556635). Links are available on my portfolio." 
+  },
+
+  // Quick Info
+  { 
+    questions: ["quick info","id","department","personal info","details"], 
+    answer: "Quick Info: ID: 2022200000149, Department: Computer Science & Engineering (CSE)." 
+  },
+
+  // Rover Scout
+  { 
+    questions: ["rover scout","scouting","scout activities"], 
+    answer: "I am active as a Rover Scout, engaging in leadership programs, community service, and outdoor activities." 
+  },
+
+  // Default fallback
+  { 
+    questions: ["default"], 
+    answer: "I’m not sure about that. You can ask me about my education, projects, awards, publications, contact info, Rover Scout activities, IT Secretary work, or Messengers of Peace involvement." 
+  }
+];
+
+    function getChatResponse(input) {
+      input = input.toLowerCase();
+      let matched = "";
+      knowledgeBase.forEach(item => {
+        item.questions.forEach(q => { if(input.includes(q)) matched = item.answer; });
+      });
+      return matched || "Sorry, I didn't understand. Try asking about my education, projects, or contact info.";
+    }
+
+    function addMessage(sender, text) {
+      const p = document.createElement('p');
+      p.textContent = (sender==='user'? "You: ":"Rantu: ") + text;
+      chatMessages.appendChild(p);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendBtn.addEventListener('click', () => {
+      const input = userInput.value.trim();
+      if(!input) return;
+      addMessage('user', input);
+      setTimeout(() => addMessage('bot', getChatResponse(input)), 300);
+      userInput.value = '';
+    });
+    userInput.addEventListener('keypress', e => { if(e.key==='Enter') sendBtn.click(); });
   </script>
 </body>
-</html>
+</html> 
