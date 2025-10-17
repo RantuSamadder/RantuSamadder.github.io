@@ -1,0 +1,19 @@
+<div id="gallery"></div>
+
+<script>
+  const apiURL = "YOUR_WEB_APP_URL"; // replace with your Apps Script URL
+
+  fetch(apiURL)
+    .then(res => res.json())
+    .then(images => {
+      const gallery = document.getElementById('gallery');
+      images.forEach(img => {
+        const imageElem = document.createElement('img');
+        imageElem.src = img.url;
+        imageElem.alt = img.name;
+        imageElem.style.width = "200px"; // adjust size
+        imageElem.style.margin = "10px";
+        gallery.appendChild(imageElem);
+      });
+    });
+</script>
