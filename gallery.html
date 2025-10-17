@@ -1,19 +1,49 @@
-<div id="gallery"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <style>
+    #gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    #gallery img {
+      width: 200px; /* adjust size */
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
 
-<script>
-  const apiURL = "https://script.google.com/macros/s/AKfycbxzh7UuE2MLY4Y2pQ5EdYSrEgV-cch_dNLlehz5dzcOVAxVfcsIa8naBqD4tRi0S3GY/exec"; // replace with your Apps Script URL
+  <h1>My Gallery</h1>
+  <div id="gallery">Loading images...</div>
 
-  fetch(apiURL)
-    .then(res => res.json())
-    .then(images => {
-      const gallery = document.getElementById('gallery');
-      images.forEach(img => {
-        const imageElem = document.createElement('img');
-        imageElem.src = img.url;
-        imageElem.alt = img.name;
-        imageElem.style.width = "200px"; // adjust size
-        imageElem.style.margin = "10px";
-        gallery.appendChild(imageElem);
+  <script>
+    // Replace this with your deployed Apps Script URL
+    const apiURL = "YOUR_APPS_SCRIPT_WEB_APP_URL";
+
+    fetch(apiURL)
+      .then(res => res.json())
+      .then(images => {
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = ""; // clear loading text
+
+        images.forEach(img => {
+          const imageElem = document.createElement('img');
+          imageElem.src = img.url;  // must be direct link: uc?export=view&id=...
+          imageElem.alt = img.name;
+          gallery.appendChild(imageElem);
+        });
+      })
+      .catch(err => {
+        console.error("Error loading images:", err);
+        document.getElementById('gallery').innerText = "Failed to load images.";
       });
-    });
-</script>
+  </script>
+
+</body>
+</html>
